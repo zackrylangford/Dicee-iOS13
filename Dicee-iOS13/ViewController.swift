@@ -12,16 +12,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var diceImageViewOne: UIImageView!
     @IBOutlet weak var diceImageViewTwo: UIImageView!
-    var leftDiceNumber = 1
-    var rightDiceNumber = 5
+
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         // Create an array to hold dice images
-        diceImageViewOne.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][Int.random(in: 0...5)]
-        leftDiceNumber += 1
+        let diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
         
-        diceImageViewTwo.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][Int.random(in: 0...5)]
-        rightDiceNumber -= 1
+//      each of these represent a dice the randomElement subs out for the (Int.random(in: 0...5))
+        
+        
+        diceImageViewOne.image = diceArray.randomElement()
+        diceImageViewTwo.image = diceArray.randomElement()
+     
         
         
     
